@@ -26,7 +26,7 @@ angular.module('App.Main')
   
   // Display details
   vm.displayToDo = function (todoIndex) {
-    var detailModal = $uibModal.open({
+    $uibModal.open({
       animation: true,
       templateUrl: 'app/detail/template.html',
       controller: 'DetailController',

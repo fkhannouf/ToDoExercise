@@ -1,20 +1,17 @@
 angular.module('App.Detail').controller(
-  'DetailController', [
-    '$uibModal', 
-    '$scope',
-    'todoItem',
-    function ($uibModalInstance, $scope, todoItem) {
+  'DetailController',
+    function ($uibModalInstance, todoItem) {
       var vm = this;
       vm.title = todoItem.title;
       vm.note = todoItem.note;
   
-      vm.ok = function () {
+      vm.okAction = function () {
         $uibModalInstance.close();
       };
 
-      vm.cancel = function () {
+      vm.cancelAction = function () {
         $uibModalInstance.dismiss('cancel');
       };
     }
-  ]
+  
 );
