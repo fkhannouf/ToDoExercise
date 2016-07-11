@@ -20,15 +20,15 @@ angular.module('App.Main')
   };
   
   // Remove todo action
-  vm.removeTodo = function (todoIndex) {
+  vm.removeToDo = function (todoIndex) {
     vm.todoCollection.splice(todoIndex, 1);
   };
   
-  // Display details
+  // Display details in a modal view
   vm.displayToDo = function (todoIndex) {
     $uibModal.open({
       animation: true,
-      templateUrl: 'app/detail/template.html',
+      templateUrl: 'app/detail/templateDisplay.html',
       controller: 'DetailController',
       controllerAs: 'detailController',
       size: 'lg',
@@ -39,5 +39,22 @@ angular.module('App.Main')
       }
     });
   };
+  
+  // Edit details in a modal view
+  vm.editToDo = function (todoIndex) {
+    $uibModal.open({
+      animation: true,
+      templateUrl: 'app/detail/templateEdit.html',
+      controller: 'DetailController',
+      controllerAs: 'detailController',
+      size: 'lg',
+      resolve: {
+        todoItem: function () {
+          return vm.todoCollection[todoIndex];
+        }
+      }
+    });
+  };
+  
 });
 
