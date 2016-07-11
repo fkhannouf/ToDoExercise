@@ -15,6 +15,7 @@ angular.module('toDoExercise')
   };
   
   service.createStuff = function (aName, aNote) {
-    service.todos.push({name: aName, note:aNote});
+    return {title: aName, note:aNote};
   };
+  
 })

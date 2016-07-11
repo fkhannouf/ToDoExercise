@@ -1,10 +1,10 @@
-<div class="container" ng-controller="MainController">
+<div class="container" ng-controller="MainController as mainController">
   <div>
     <p>
-      Click the <button type="button" class='btn btn-default' ng-click="addStuffToDoAction()">+</button> button to add something to do !
+      Click the <button type="button" class='btn btn-default' ng-click="mainController.addStuffToDoAction()"><span class="glyphicon glyphicon-plus"></span></button> button to add something to do !
     </p>
   </div>
   <todo class="col-sm-12 col-md-12" 
-       ng-repeat="todo in main.allTodos">
+       ng-repeat="todo in mainController.todoCollection">
   </todo>
 </div>
