@@ -12,6 +12,12 @@ angular.module('App.Detail').controller(
       vm.cancelAction = function () {
         $uibModalInstance.dismiss('cancel');
       };
+      
+      vm.saveAction = function () {
+        todoItem.title = vm.title;
+        todoItem.note = vm.note;
+        $uibModalInstance.close();
+      };
+      
     }
-  
 );
