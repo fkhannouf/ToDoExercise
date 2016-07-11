@@ -4,7 +4,8 @@ angular.module('toDoExercise', [
   'ngMessages', 
   'ngRoute', 
   'ui.bootstrap',
-  'App.Main'
+  'App.Main',
+  'App.Detail'
 ])
 
 // Routing setup     
