@@ -1,6 +1,6 @@
 angular.module('App.Main')
 // Main view controller
-.controller('MainController', function (ToDoModel, $uibModal) {
+.controller('MainController', function (ToDoModel, $uibModal, $routeParams, $scope, $location) {
   var vm = this,
       // Read items from model service...
       currentTodosCollection = ToDoModel.allTodos();
@@ -8,6 +8,7 @@ angular.module('App.Main')
       // ...and set each item Id
       vm.todoCollection = currentTodosCollection;
   
+      //debugger;  
   // Add stuff action
   vm.addStuffToDoAction = function (){
     var aTodo = ToDoModel.createStuff(
@@ -28,6 +29,7 @@ angular.module('App.Main')
   vm.displayToDo = function (todoIndex) {
     $uibModal.open({
       animation: true,
+      keyboard: false,  // TODO : find why the modal doesn't want to reopen after an ESC key touch
       templateUrl: 'app/detail/templateDisplay.html',
       controller: 'DetailController',
       controllerAs: 'detailController',
@@ -44,6 +46,7 @@ angular.module('App.Main')
   vm.editToDo = function (todoIndex) {
     $uibModal.open({
       animation: true,
+      keyboard: false,  // TODO : find why the modal doesn't want to reopen after an ESC key touch
       templateUrl: 'app/detail/templateEdit.html',
       controller: 'DetailController',
       controllerAs: 'detailController',
@@ -54,6 +57,20 @@ angular.module('App.Main')
         }
       }
     });
+  };
+  
+  
+  // TODO : verify if there's a better way to do that by using routing
+  
+  // Check if an :id parameter is passed via the URL...
+  $scope.init = function () {
+    // ... and invoke the appropriate modal view
+    if (angular.isUndefined($routeParams.id)) return;
+    if ($location.path().endsWith('/edit')) {
+      vm.editToDo($routeParams.id);
+    } else {
+      vm.displayToDo($routeParams.id);
+    }
   };
   
 });

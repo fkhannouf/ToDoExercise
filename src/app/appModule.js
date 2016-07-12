@@ -11,13 +11,18 @@ angular.module('toDoExercise', [
 // Routing setup     
 .config(function ($routeProvider) {
   $routeProvider
-    .when('/', {
+    .when('/todo/:id?', {
+      templateUrl: 'app/main/template.html',
+      controller: 'MainController',
+      controllerAs: 'main'
+    })
+    .when('/todo/:id/edit', {
       templateUrl: 'app/main/template.html',
       controller: 'MainController',
       controllerAs: 'main'
     })
     .otherwise({
-      redirectTo: '/'
+      redirectTo: '/todo'
     });
 });
 
