@@ -10,7 +10,7 @@ Here are the steps to follow to install the application
 > git clone https://github.com/fkhannouf/ToDoExercise.git
 
 2. Install dependencies using NPM from the project directory
-> cd toDel && npm install
+> cd ToDoExercise && npm install
 
 3. Build and run the application
 > ./node_modules/.bin/gulp serve
