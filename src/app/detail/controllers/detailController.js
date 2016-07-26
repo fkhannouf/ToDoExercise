@@ -4,6 +4,12 @@ angular.module('App.Detail').controller(
       var vm = this;
       vm.title = todoItem.title;
       vm.note = todoItem.note;
+
+  
+      $uibModalInstance.closed.then(function (a) {
+        $location.path('/');
+      });
+  
   
       vm.okAction = function () {
         $uibModalInstance.close();
@@ -11,14 +17,12 @@ angular.module('App.Detail').controller(
 
       vm.cancelAction = function () {
         $uibModalInstance.dismiss('cancel');
-        $location.path('/')
       };
       
       vm.saveAction = function () {
         todoItem.title = vm.title;
         todoItem.note = vm.note;
         $uibModalInstance.close();
-        $location.path('/')
       };
       
     }

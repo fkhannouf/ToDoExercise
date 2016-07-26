@@ -29,7 +29,6 @@ angular.module('App.Main')
   vm.displayToDo = function (todoIndex) {
     $uibModal.open({
       animation: true,
-      keyboard: false,  // TODO : find why the modal doesn't want to reopen after an ESC key touch
       templateUrl: 'app/detail/templateDisplay.html',
       controller: 'DetailController',
       controllerAs: 'detailController',
@@ -46,7 +45,6 @@ angular.module('App.Main')
   vm.editToDo = function (todoIndex) {
     $uibModal.open({
       animation: true,
-      keyboard: false,  // TODO : find why the modal doesn't want to reopen after an ESC key touch
       templateUrl: 'app/detail/templateEdit.html',
       controller: 'DetailController',
       controllerAs: 'detailController',
